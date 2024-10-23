@@ -1,5 +1,7 @@
 package academy.learnprogramming;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -92,7 +94,7 @@ public class GameImpl implements GameInterface{
      * Annotate with @PostConstruct
      */
 
-   // @PostConstruct
+    @PostConstruct
     @Override
     public void reset() {
 
@@ -109,7 +111,7 @@ public class GameImpl implements GameInterface{
         log.debug("the number is {}",number);
     }
 
-    //@PreDestroy
+    @PreDestroy
     public void preDestroy(){
         log.info("in Game preDestroy()");
     }

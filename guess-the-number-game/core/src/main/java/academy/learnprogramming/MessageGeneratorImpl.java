@@ -1,5 +1,6 @@
 package academy.learnprogramming;
 
+import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -42,7 +43,7 @@ public class MessageGeneratorImpl implements MessageGeneratorInterface{
     //private int guessCount = 10;
 
     /* init methods */
-   // @PostConstruct
+    @PostConstruct
     public void init(){
         log.info("Game = {}", gameInterface);
     }

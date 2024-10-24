@@ -10,14 +10,11 @@
      <h2>Game Over</h2>
      <h3 th:text="${resultMessage}"></h3>
      <h3>
-         <a th:href="${play}">Play Again</a>
+         <a th:href="@{restart}">Play Again</a>
      </h3>
-
      <h3>
-         <a th:href="${home}">Home</a>
+         <a th:href="@{/}">Home</a>
      </h3>
-
-
      <footer>
          <p>Created by Learn Programming Academy</p>
      </footer>

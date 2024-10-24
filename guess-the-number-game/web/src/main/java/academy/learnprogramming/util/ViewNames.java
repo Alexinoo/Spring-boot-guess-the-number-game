@@ -8,6 +8,5 @@ public final class ViewNames {
     public static final String GAME_OVER = "game-over";
 
     // constructor
-
     private ViewNames(){}
 }

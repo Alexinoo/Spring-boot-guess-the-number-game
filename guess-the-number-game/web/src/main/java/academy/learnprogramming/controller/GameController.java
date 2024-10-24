@@ -40,4 +40,10 @@ public class GameController {
         gameServiceInterface.checkGuess(guess);
         return GameMappings.REDIRECT_PLAY;
     }
+
+    @GetMapping(GameMappings.RESTART)
+    public String restart(){
+        gameServiceInterface.reset();
+       return GameMappings.REDIRECT_PLAY;
+    }
 }

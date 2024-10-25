@@ -15,9 +15,10 @@
      <h3>
          <a th:href="@{/}">Home</a>
      </h3>
-     <footer>
-         <p>Created by Learn Programming Academy</p>
-     </footer>
+
+     <div th:replace="~{fragments/footer:: footerFragment}">
+        Footer goes here
+     </div>
  </div>
 </body>
 </html>

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/head :: headFragment}">
+<html lang="en">
+<head id="head-id">
     <meta charset="UTF-8">
     <title>Game</title>
 </head>
 <body>
  <div align="center">
      <h1>Guess Number Game</h1>
-     <h3 th:text="${mainMessage}">Main Message Content</h3>
-     <h3 th:text="${resultMessage}">Result Message Content</h3>
+     <h3 id="main-message">Main Message Content</h3>
+     <h3 id="result-message">Result Message Content</h3>
 
      <form action="play" method="POST">
         <label for="guess">Enter your guess</label>
@@ -17,8 +17,8 @@
          <input type="submit" value="Submit" />
      </form>
 
-     <footer>
-         <p>Created by Learn Programming Academy</p>
+     <footer id="footer-id">
+         <p>Some Footer Here</p>
      </footer>
  </div>
 </body>

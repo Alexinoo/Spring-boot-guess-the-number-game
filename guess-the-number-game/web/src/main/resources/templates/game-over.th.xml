@@ -1,0 +1,15 @@
+<thlogic>
+    <attr sel="#head-id"
+          th:fragment="~{fragments/head :: headFragment}"/>
+    <attr sel="#result-message"
+          th:text="${resultMessage}"/>
+
+    <attr sel="#restart-id"
+          th:href="@{restart}"/>
+
+    <attr sel="#home-id"
+          th:href="@{/}"/>
+
+    <attr sel="#footer-id"
+          th:fragment="~{fragments/footer:: footerFragment}"/>
+</thlogic>

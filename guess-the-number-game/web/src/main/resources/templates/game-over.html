@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/head :: headFragment}">
+<html lang="en" >
+<head id="head-id">
     <meta charset="UTF-8">
     <title>Game Finished</title>
 </head>
@@ -8,16 +8,16 @@
  <div align="center">
      <h1>Guess The Number Game</h1>
      <h2>Game Over</h2>
-     <h3 th:text="${resultMessage}"></h3>
+     <h3 id="result-message">Result Message goes here</h3>
      <h3>
-         <a th:href="@{restart}">Play Again</a>
+         <a id="restart-id">Play</a>
      </h3>
      <h3>
-         <a th:href="@{/}">Home</a>
+         <a id="home-id">Home</a>
      </h3>
 
-     <div th:replace="~{fragments/footer:: footerFragment}">
-        Footer goes here
+     <div id="footer-id" >
+       Created by Learn Programming Academy
      </div>
  </div>
 </body>

@@ -1,0 +1,12 @@
+<thlogic>
+    <attr sel="#head-id"
+          th:fragment="~{fragments/head :: headFragment}" />
+
+    <attr sel="#link-id"
+          th:href="@{play}"
+          th:text="play" />
+
+    <attr sel="#footer-id"
+          th:fragment="~{fragments/footer:: footerFragment}"/>
+
+</thlogic>

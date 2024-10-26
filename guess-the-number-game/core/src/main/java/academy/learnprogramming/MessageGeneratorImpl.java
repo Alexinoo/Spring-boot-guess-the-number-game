@@ -14,6 +14,15 @@ public class MessageGeneratorImpl implements MessageGeneratorInterface{
 
     //constants
     private static final String MAIN_MESSAGE = "game.main.message";
+    private static final String WIN = "game.win";
+    private static final String LOSE = "game.lose";
+    private static final String INVALID_RANGE = "game.invalid.range";
+    private static final String FIRST_GUESS = "game.first.guess";
+    private static final String HIGHER = "game.higher";
+    private static final String LOWER = "game.lower";
+    private static final String REMAINING = "game.remaining";
+
+    //fields
     private String mainMessage = "getMainMessage() called";
     private String resultMessage = "getResultMessage() called";
 
@@ -79,19 +88,26 @@ public class MessageGeneratorImpl implements MessageGeneratorInterface{
     public String getResultMessage() {
        /* return resultMessage; */
         if (gameInterface.isGameWon()){
-            return "You guessed it! The number was "+gameInterface.getNumber();
+            //return "You guessed it! The number was "+gameInterface.getNumber();
+            return getMessage(WIN,gameInterface.getNumber());
         } else if (gameInterface.isGameLost()) {
-            return "You lost. The number was "+ gameInterface.getNumber();
+            //return "You lost. The number was "+ gameInterface.getNumber();
+            return getMessage(LOSE,gameInterface.getNumber());
         }else if (!gameInterface.isValidNumberRange()){
-            return "Invalid number range!";
+            //return "Invalid number range!";
+            return getMessage(INVALID_RANGE);
         } else if (gameInterface.getRemainingGuesses() == gameInterface.getGuessCount()) {
-            return "What is your first guess ?";
+            //return "What is your first guess ?";
+            return getMessage(FIRST_GUESS);
         }else {
-            String direction = "Lower";
+            //String direction = "Lower";
+            String direction = getMessage(LOWER);
             if (gameInterface.getGuess() < gameInterface.getNumber()){
-                direction = "Higher";
+                //direction = "Higher";
+                direction = getMessage(HIGHER);
             }
-            return direction +"! You have "+gameInterface.getRemainingGuesses() + " guesses left";
+            //return direction +"! You have "+gameInterface.getRemainingGuesses() + " guesses left";
+            return getMessage(REMAINING,direction,gameInterface.getRemainingGuesses());
         }
     }
 

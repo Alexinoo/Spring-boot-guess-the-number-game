@@ -3,11 +3,17 @@ package academy.learnprogramming;
 import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContext;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
 public class MessageGeneratorImpl implements MessageGeneratorInterface{
+
+    //constants
+    private static final String MAIN_MESSAGE = "game.main.message";
     private String mainMessage = "getMainMessage() called";
     private String resultMessage = "getResultMessage() called";
 
@@ -30,13 +36,20 @@ public class MessageGeneratorImpl implements MessageGeneratorInterface{
      private final GameInterface gameInterface;
 
      /*
+      * Message Source
+      */
+     private MessageSource messageSource;
+
+     /*
       * constructor injection
       * Autowired
       */
 
     @Autowired
-    public MessageGeneratorImpl(GameInterface gameInterface) {
+    public MessageGeneratorImpl(GameInterface gameInterface,
+                                MessageSource messageSource) {
         this.gameInterface = gameInterface;
+        this.messageSource = messageSource;
     }
 
     /* Removed  - later */
@@ -53,11 +66,13 @@ public class MessageGeneratorImpl implements MessageGeneratorInterface{
     @Override
     public String getMainMessage() {
        /* return mainMessage; */
-        return "Number is between "+
+      /*  return "Number is between "+
                 gameInterface.getSmallest() +
                 " and " +
                 gameInterface.getBiggest() +
-                ". Can you guess it ?";
+                ". Can you guess it ?"; */
+      /* Internationalization in action */
+      return getMessage(MAIN_MESSAGE,gameInterface.getSmallest(),gameInterface.getBiggest());
     }
 
     @Override
@@ -78,5 +93,11 @@ public class MessageGeneratorImpl implements MessageGeneratorInterface{
             }
             return direction +"! You have "+gameInterface.getRemainingGuesses() + " guesses left";
         }
+    }
+
+
+    // private methods
+    private String getMessage(String code , Object... args){
+        return messageSource.getMessage(code , args, LocaleContextHolder.getLocale());
     }
 }
